@@ -1,0 +1,41 @@
+input{
+    width: 95%;
+    border-radius: 5px;
+    height: 23px;
+}
+.btnSearch{
+    height: 28px;
+    border-radius: 5px;
+    color: white;
+    background-color: #19754a;
+    border: none;
+}
+img{
+    width: 200px;
+    height: 200px;
+}
+p{
+    color: #918d88;
+}
+.itemBorder{
+    display: flex;
+    gap: 2px;
+}
+.item{
+    border: 1px solid #efefef;
+    width: 200px;
+    padding: 0px 15px 15px 15px;
+    border-radius: 10px;
+    background-color: #ece9e9;
+}
+.buyItem{
+    background-color: #1574fa;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 50px;
+    height: 30px;
+}
+body{
+    font-family: "Roboto";
+}

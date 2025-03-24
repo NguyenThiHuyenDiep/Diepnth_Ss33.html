@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bai5.css"></link>
+</head>
+<body>
+    <div class="search">
+        <input type="text" name="search" id="search" placeholder="Search">
+        <button id="btn" class="btnSearch">Search</button>
+    </div>
+    <br>
+    <div class="allItem">
+        <div class="itemBorder">
+            <div class="item">
+                <img src="https://laptopleson.com/wp-content/uploads/2024/03/Dell-XPS-15-9510.jpg" alt="">
+                <h4>Laptop Dell XPS 15</h4>
+                <p>Laptop cao cấp với màn hình 15 inch, CPU Intel Core i7 và RAM 16GB.</p>
+                <p>35,990,000 VND</p>
+                <button class="buyItem">Buy</button>
+            </div>
+            <div class="item">
+                <img src="https://mir-s3-cdn-cf.behance.net/projects/404/281249212318531.Y3JvcCwxMjE0LDk0OSwyMzcsMA.png" alt="">
+                <h4>iPhone 15 Pro Max</h4>
+                <p>Điện thoại flagship của Apple với camera 48MP và chip A17 Pro.</p>
+                <p>32,990,000 VND</p>
+                <button class="buyItem">Buy</button>
+            </div>
+            <div class="item">
+                <img src="https://images.offerup.com/w8sE3NkK4ziI5L_NCRalGoWupPk=/474x316/757d/757dc9b8b7474842a0bbf0345facf35a.jpg" alt="">
+                <h4>Samsung Galaxy S24 Ultra</h4>
+                <p>Điện thoại Android mạnh mẽ với bút S-Pen và camera siêu zoom.</p>
+                <p>28,990,000 VND</p>
+                <button class="buyItem">Buy</button>
+            </div>
+            <div class="item">
+                <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-ljv36f0uj8xuaf" alt="">
+                <h4>Tai nghe Sony WH-1000XM5</h4>
+                <p>Tai nghe chống ồn tốt nhất với thời lượng pin lên đến 30 giờ.</p>
+                <p>7,990,000 VND</p>
+                <button class="buyItem">Buy</button>
+            </div>
+            <div class="item">
+                <img src="https://bgr.com/wp-content/uploads/2023/09/Apple-Watch-Series-9.jpg?quality=82&strip=all" alt="">
+                <h4>Apple Watch Series 9</h4>
+                <p>Đồng hồ thông minh cao cấp với tính năng đo nhịp tim và hỗ trợ thể thao.</p>
+                <p>11,990,000 VND</p>
+                <button class="buyItem">Buy</button>
+            </div>
+            <div class="item">
+                <img src="https://i.pcmag.com/imagery/reviews/00R3IsXIpy1bagyG1OeiBSH-1.fit_lim.size_1050x591.v1615234127.jpg" alt="">
+                <h4>Loa JBL Charge 5</h4>
+                <p>Loa Bluetooth chống nước với âm bass mạnh mẽ và pin 20 giờ.</p>
+                <p>3,990,000 VND</p>
+                <button class="buyItem">Buy</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let product =[
+        {
+        id: 1,
+        name: "Laptop Dell XPS 15",
+        price: 35990000,
+        image: "https://laptopleson.com/wp-content/uploads/2024/03/Dell-XPS-15-9510.jpg",
+        description: "Laptop cao cấp với màn hình 15 inch, CPU Intel Core i7 và RAM 16GB."
+    },
+    {
+        id: 2,
+        name: "iPhone 15 Pro Max",
+        price: 32990000,
+        image: "https://mir-s3-cdn-cf.behance.net/projects/404/281249212318531.Y3JvcCwxMjE0LDk0OSwyMzcsMA.png",
+        description: "Điện thoại flagship của Apple với camera 48MP và chip A17 Pro."
+    },
+    {
+        id: 3,
+        name: "Samsung Galaxy S24 Ultra",
+        price: 28990000,
+        image: "https://images.offerup.com/w8sE3NkK4ziI5L_NCRalGoWupPk=/474x316/757d/757dc9b8b7474842a0bbf0345facf35a.jpg",
+        description: "Điện thoại Android mạnh mẽ với bút S-Pen và camera siêu zoom."
+    },
+    {
+        id: 4,
+        name: "Tai nghe Sony WH-1000XM5",
+        price: 7990000,
+        image: "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-ljv36f0uj8xuaf",
+        description: "Tai nghe chống ồn tốt nhất với thời lượng pin lên đến 30 giờ."
+    },
+    {
+        id: 5,
+        name: "Apple Watch Series 9",
+        price: 11990000,
+        image: "https://bgr.com/wp-content/uploads/2023/09/Apple-Watch-Series-9.jpg?quality=82&strip=all",
+        description: "Đồng hồ thông minh cao cấp với tính năng đo nhịp tim và hỗ trợ thể thao."
+    },
+    {
+        id: 6,
+        name: "Loa JBL Charge 5",
+        price: 3990000,
+        image: "https://i.pcmag.com/imagery/reviews/00R3IsXIpy1bagyG1OeiBSH-1.fit_lim.size_1050x591.v1615234127.jpg",
+        description: "Loa Bluetooth chống nước với âm bass mạnh mẽ và pin 20 giờ."
+    }
+    ]
+    document.getElementById("btn").onclick = function(){
+        let searchValue = document.getElementById("search").value;
+        let filteredProducts = product.filter((p) => p.name.includes(searchValue));
+
+        let allItemDiv = document.querySelector(".allItem");
+        allItemDiv.innerHTML = "";
+    
+        let itemBorderDiv = document.createElement("div");
+        itemBorderDiv.classList.add("itemBorder");
+    
+        filteredProducts.forEach((p) => {
+            let itemDiv = document.createElement("div");
+            itemDiv.classList.add("item");      
+            itemDiv.innerHTML = `
+                <img src="${p.image}">
+                <h4>${p.name}</h4>
+                <p>${p.description}</p>
+                <p>${p.price} VND</p>
+                <button class="buyItem">Buy</button>
+            `;
+        itemBorderDiv.appendChild(itemDiv);
+        });
+    allItemDiv.appendChild(itemBorderDiv);
+    }
+    
+    </script>
+
+</body>
+</html>
