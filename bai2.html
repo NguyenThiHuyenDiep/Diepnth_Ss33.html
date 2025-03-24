@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea name="text" id="text"></textarea>
+    <p><span id="count">0</span> ký tự</p>
+    <button id="btn">kiểm tra</button>
+
+    <script>
+        document.getElementById("btn").onclick = function(){
+            let count=0;
+            let checkText = document.getElementById("text").value;
+            for(let i=0; i<checkText.length; i++){
+                count++;
+            }
+            document.getElementById("count").innerText=count;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select name="select" id="select">
+        <option value="value0">-- Lựa chọn danh mục --</option>
+        <option value="Đồ ăn">Đồ ăn</option>
+        <option value="Nước">Nước</option>
+        <option value="Dụng cụ">Dụng cụ</option>
+    </select>
+    <button id="check">Lọc</button>
+    <div class="allItem">
+        <ul id="itemList">
+            <li><b>Tên đồ ăn: </b>Rau sạch <b>- Danh mục: </b>Đồ ăn</li><br>
+            <li><b>Tên đồ ăn: </b>Thịt lợn <b>- Danh mục: </b>Đồ ăn</li><br>
+            <li><b>Tên đồ ăn: </b>Pepsi không calo <b>- Danh mục: </b>Nước</li><br>
+            <li><b>Tên đồ ăn: </b>Cocacola <b>- Danh mục: </b>Nước</li><br>
+            <li><b>Tên đồ ăn: </b>Cờ lê <b>- Danh mục: </b>Dụng cụ</li><br>
+            <li><b>Tên đồ ăn: </b>Tua vít <b>- Danh mục: </b>Dụng cụ</li><br>
+        </ul>
+    </div>
+
+    <script>
+        let dish=[
+            {name: 'Rau sạch', category: 'Đồ ăn'},
+            {name: 'Thịt lợn', category: 'Đồ ăn'},
+            {name: 'Pepsi không calo', category: 'Nước'},
+            {name: 'Cocacola', category: 'Nước'},
+            {name: 'Cờ lê', category: 'Dụng cụ'},
+            {name: 'Tua vít', category: 'Dụng cụ'},
+        ]
+
+        document.getElementById("check").onclick = function(){
+            let select = document.getElementById("select").value;
+            let itemList = document.getElementById("itemList");
+            itemList.innerHTML="";
+            let filterDish = dish.filter((d) => select === "value0" || d.category === select);
+            
+            filterDish.forEach(d => {
+                let li = document.createElement("li");
+                li.innerHTML = `<b>Tên đồ ăn: </b>${d.name} <b>- Danh mục: </b>${d.category}`;
+                itemList.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>

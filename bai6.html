@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bai6.css"></link>
+    
+</head>
+<body>
+    <div class="nameApp">
+        <h1>Ứng dụng Thời tiết</h1>
+    </div>
+    <div class="search">
+        <input type="text" name="search" id="search">
+        <button id="btnSearch">Tìm kiếm</button>
+    </div>
+    <br>
+    <div class="weatherBorder">
+        <div class="nameAdress">
+            <h2></h2>
+            <div class="infor">
+                <div class="icon">
+                    <h1></h1>
+                </div>
+                <div class="C">
+                    <h1></h1>
+                </div>
+                <div class="element">
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        let weatherData = {
+            "Hà Nội": {
+                temperature: 25,
+                humidity: 70,
+                windSpeed: 5,
+                description: "Có mây",
+                icon: "☁️"
+            },
+            "Hồ Chí Minh": {
+                temperature: 32,
+                humidity: 75,
+                windSpeed: 7,
+                description: "Nắng",
+                icon: "☀️"
+            },
+            "Đà Nẵng": {
+                temperature: 28,
+                humidity: 82,
+                windSpeed: 12,
+                description: "Mưa rào",
+                icon: "🌧️"
+            }
+        };
+
+        document.getElementById("btnSearch").onclick = function(){
+            let searchValue = document.getElementById("search").value;
+            let weatherInfo = weatherData[searchValue];
+    
+            if(weatherInfo){
+                document.querySelector(".nameAdress h2").textContent = searchValue;
+                document.querySelector(".icon h1").textContent = weatherInfo.icon;
+                document.querySelector(".C h1").textContent = weatherInfo.temperature + "°C";
+                document.querySelector(".element").innerHTML = `
+                    <p>${weatherInfo.description}</p>
+                    <p>Độ ẩm: ${weatherInfo.humidity}%</p>
+                    <p>Tốc độ gió: ${weatherInfo.windSpeed} km/h</p>
+                `;
+                document.querySelector(".weatherBorder").style.display = "block";
+            }else{
+                alert("Lỗi");
+            }
+        };
+    </script>
+</body>
+</html>
